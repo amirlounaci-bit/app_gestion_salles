@@ -1,5 +1,3 @@
-from logging import exception
-
 import mysql.connector
 import json
 
@@ -31,12 +29,12 @@ class DataSalle:
         conn=self.get_connection()
         cursor=conn.cursor()
         cursor.execute("UPDATE salle SET description=%s,categorie=%s,capacite=%s WHERE code=%s",
-                   (salle.description,salle.code,salle.categorie,salle.capacite))
+                   (salle.description,salle.categorie,salle.capacite,salle.code))
         conn.commit()
         conn.close()
 
         print(f"salle modifiee")
-    def delete_salle(self,salle):
+    def delete_salle(self,code):
         conn=self.get_connection()
         cursor=conn.cursor()
         cursor.execute("DELETE FROM salle WHERE code=%s",(code,))
