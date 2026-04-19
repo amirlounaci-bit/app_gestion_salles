@@ -1,41 +1,40 @@
-from data.dao_salle import DataSalle
-from models.salle import salle
+from models.salle import Salle
+from services.services_salle import ServiceSalle
 
-dao = DataSalle()
-# test de connexion
-conn=dao.get_connection()
-if conn:
-    print(f"connexion reussi")
-    conn.close()
+service=ServiceSalle()
 
-# test d'ajout salle
-s1=salle("A1","salle informatique","labo","35")
-# dao.insert_salle(s1)
-# print(f"salle ajoutee")
+ # afficher liste des salles
+# print("\nliste des salles :")
+# salles=service.recuperer_salles()
+# if salles:
+#     for s in salles:
+#         s.affiche_infos()
+# else:
+#     print(f"aucune salle trouvee:")
+#
+# ajout d'une salle
+# print("\najouter une salle :")
+# s5=Salle("s5","tp","logiciel","12")
+# result,message=service.ajouter_salle(s5)
+# print(message)
 
 
+#  modifier une salle
+# print("\n modifier une salle :")
+# s5=Salle("s3","tpmodifier","logiciel app",16)
+# result,message=service.modifer_salle(s5)
+# print(message)
 
-# test modifier une salle
-# s1.description="salle reseau"
-# s1.categorie="recherche"
-# s1.capacite="45"
-# dao.update_salle(s1)
-# print(f"salle modifiee")
+#  suprimer une salle
+# print("\n suprimmer une salle :")
+# message=service.supprimer_salle("s5")
+# print(message)
 
-# test recherche d'une salle
-salle=dao.get_salle("A1")
-if salle:
-    print(f"salle trouvee")
-
-else:
-    print(f"salle non trouvee")
-
-# test de recupperation de toute les salles
-print("\nliste des salles :")
-liste=dao.get_salles()
-for s in liste:
-    print(s)
-
-# teste de supression d'une salle
-dao.delete_salle("A2")
-print(f"salle suprimer")
+# recherche une salle
+# print("\n rechrcher une salle :")
+# s=service.rechercher_salle("A1")
+# if s:
+#     s.affiche_infos()
+# else:
+#     print("salle intouvable")
+#
