@@ -34,3 +34,11 @@ class ServiceSalle:
             return salle (resultat[0], resultat[1], resultat[2], resultat[3])
         else:
             return None
+
+    def recuperer_salles(self):
+        rows=self.dao_salle.get_salles()
+        salles=[]
+        for row in rows:
+            salles.append(salle(row[0], row[1], row[2], row[3]))
+
+        return salles
