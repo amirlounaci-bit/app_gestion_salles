@@ -25,4 +25,17 @@ class DataSalle:
                        (salle.code,salle.description,salle.categorie,salle.capacite))
         conn.commit()
         conn.close()
-    print(f"salle ajoutee")
+        print(f"salle ajoutee")
+
+    def update_salle(self,salle):
+        conn=self.get_connection()
+        cursor=conn.cursor()
+        cursor.execute("UPDATE salle SET description=%s,categorie=%s,capacite=%s WHERE code=%s",
+                   (salle.description,salle.code,salle.categorie,salle.capacite))
+        conn.commit()
+        conn.close()
+
+        print(f"salle modifiee")
+
+
+
