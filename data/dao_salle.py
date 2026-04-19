@@ -36,6 +36,13 @@ class DataSalle:
         conn.close()
 
         print(f"salle modifiee")
+    def delete_salle(self,salle):
+        conn=self.get_connection()
+        cursor=conn.cursor()
+        cursor.execute("DELETE FROM salle WHERE code=%s",(code,))
+        conn.commit()
+        conn.close()
+        print(f"salle suprimee")
 
 
 
