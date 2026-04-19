@@ -1,3 +1,5 @@
+from logging import exception
+
 import mysql.connector
 import json
 
@@ -15,3 +17,12 @@ class DataSalle:
         )
 
         return conn
+
+    def insert_salle(self,salle):
+        conn=self.get_connection()
+        cursor=conn.cursor()
+        cursor.execute("INSERT INTO salle VALUES (%s,%s,%s,%s)",
+                       (salle.code,salle.description,salle.categorie,salle.capacite))
+        conn.commit()
+        conn.close()
+    print(f"salle ajoutee")
