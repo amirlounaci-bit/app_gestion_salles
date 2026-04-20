@@ -7,6 +7,39 @@ class ViewSalle(ctk.CTk):
         super().__init__()
 
 
+        self.service=ServiceSalle()
+        self.title = "Gestion Salles"
+        self.geometry = "700x500"
+
+    def frame_information(self):
+
+        frame=ctk.CTkFrame(self)
+        frame.pack(pady=10)
+
+        ctk.CTkLabel(frame,text="code").grid(row=0,column=0)
+        self.EntryCode = ctk.CTkEntry(frame)
+        self.EntryCode.grid(row=0,column=1)
+
+        ctk.CTkLabel(frame,text="description").grid(row=1,column=0)
+        self.EntryDescription = ctk.CTkEntry(frame)
+        self.EntryDescription.grid(row=1,column=1)
+
+        ctk.CTkLabel(frame,text="categorie").grid(row=2,column=0)
+        self.EntryCategorie = ctk.CTkEntry(frame)
+        self.EntryCategorie.grid(row=2,column=1)
+
+        ctk.CTkLabel(frame,text="capacite").grid(row=3,column=0)
+        self.EntryCapacite = ctk.CTkEntry(frame)
+        self.EntryCapacite.grid(row=3,column=1)
+
+
+
+
+
+
+
+
+
 
 
 
