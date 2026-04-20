@@ -78,6 +78,26 @@ class ViewSalle(ctk.CTk):
 
         ctk.CTkButton(frame,texte="supprimer", command=self.modifier_salle()).grid(row=0,column=2)
 
+    def rechercher_salle(self):
+        code=self.EntryCode.get()
+
+        salle=self.service_salle.rechercher_salle(code)
+
+        if salle:
+            self.entry_description.delete(0,"end")
+            self.entry_categorie.delete(0,"end")
+            self.entry_capacite.delete(0,"end")
+
+            self.entry_description.insert(0,salle.description)
+            self.entry_categorie.insert(0,salle.categorie)
+            self.entry_capacite.insert(0,salle.capacite)
+
+        ctk.CTkButton(frame, texte="rechercher", command=self.modifier_salle()).grid(row=0, column=3)
+
+
+
+
+
 
 
 
