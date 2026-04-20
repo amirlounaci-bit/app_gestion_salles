@@ -43,6 +43,19 @@ class ViewSalle(ctk.CTk):
         ctk.CTkButton(frame,text="supprimer").grid(row=0,column=2,padx=5)
         ctk.CTkButton(frame,text="rechercher").grid(row=0,column=3,padx=5)
 
+    def ajouter_salle(self):
+
+        code=self.EntryCode.get()
+        description=self.EntryDescription.get()
+        categorie=self.EntryCategorie.get()
+        capacite=self.EntryCapacite.get()
+
+        salle=Salle(code,description,categorie,capacite)
+        message=self.sevice_salle.ajouter_salle(salle)
+        print(message)
+
+        ctk.CTkButton(frame,text="ajouter",command=self.ajouter_salle).grid(row=0,column=0)
+
 
 
 
