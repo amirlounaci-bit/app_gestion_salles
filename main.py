@@ -38,3 +38,6 @@ service=ServiceSalle()
 # else:
 #     print("salle intouvable")
 #
+from views.view_salle import ViewSalle
+app = ViewSalle()
+app.mainloop()

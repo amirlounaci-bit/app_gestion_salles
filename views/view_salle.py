@@ -8,8 +8,10 @@ class ViewSalle(ctk.CTk):
 
 
         self.service=ServiceSalle()
-        self.title = "Gestion Salles"
-        self.geometry = "700x500"
+        self.title  ("Gestion Salles")
+        self.geometry ("700x500")
+        self.frame_information()
+        self.frame_actions()
 
     def frame_information(self):
 
