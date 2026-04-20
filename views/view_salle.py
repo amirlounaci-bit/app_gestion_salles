@@ -1,6 +1,7 @@
 import customtkinter as ctk
 from services.services_salle import ServiceSalle
 from models.salle import Salle
+from tkinter import ttk
 
 class ViewSalle(ctk.CTk):
     def __init__(self):
@@ -96,6 +97,21 @@ class ViewSalle(ctk.CTk):
 
         ctk.CTkButton(frame, texte="rechercher", command=self.modifier_salle()).grid(row=0, column=3)
 
+    def frame_lister(self):
+        cadreList = ctk.CTkFrame(self, corner_radius=10, width=400)
+        self.cadreList.pack(pady=10, padx=10)
+        self.treeList = ttk.Treeview(self.cadreList, columns=("code", "description", "categorie", "capacite"),show="headings")
+
+        self.treeList.heading("code", text="CODE")
+        self.treeList.heading("description", text="Description")
+        self.treeList.heading("categorie", text="Catégorie")
+        self.treeList.heading("capacite", text="Capacité")
+
+        self.treeList.column("code", width=50)
+        self.treeList.column("description", width=150)
+        self.treeList.column("categorie", width=100)
+        self.treeList.column("capacite", width=100)
+        self.treeList.pack(expand=True, fill="both", padx=10, pady=10)
 
 
 
