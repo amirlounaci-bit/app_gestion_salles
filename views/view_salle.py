@@ -98,10 +98,15 @@ class ViewSalle(ctk.CTk):
         ctk.CTkButton(frame, texte="rechercher", command=self.modifier_salle()).grid(row=0, column=3)
 
     def frame_lister(self):
-        cadreList = ctk.CTkFrame(self, corner_radius=10, width=400)
-        self.cadreList.pack(pady=10, padx=10)
-        self.treeList = ttk.Treeview(self.cadreList, columns=("code", "description", "categorie", "capacite"),show="headings")
 
+        self.cadreList = ctk.CTkFrame(self, corner_radius=10, width=400)
+        self.cadreList.pack(pady=10, padx=10)
+
+        self.treeList = ttk.Treeview(
+            self.cadreList,
+            columns=("code", "description", "categorie", "capacite"),
+            show="headings"
+        )
         self.treeList.heading("code", text="CODE")
         self.treeList.heading("description", text="Description")
         self.treeList.heading("categorie", text="Catégorie")
