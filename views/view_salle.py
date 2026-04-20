@@ -70,7 +70,13 @@ class ViewSalle(ctk.CTk):
 
         ctk.CTkButton(frame,texte="modifier", command=self.modifier_salle()).grid(row=0,column=1)
 
+    def supprimer_salle(self):
+        code=self.EntryCode.get()
 
+        message=self.service_salle.supprimer_salle(code)
+        print(message)
+
+        ctk.CTkButton(frame,texte="supprimer", command=self.modifier_salle()).grid(row=0,column=2)
 
 
 
